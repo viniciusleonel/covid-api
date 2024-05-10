@@ -86,6 +86,7 @@ export default function Home() {
     setCountriesList(false)
     setByDateInBrazilList(false)
     setRegisterCovidData(false)
+    setSearch('')
   }
 
   // Req GET para listar os casos nos paises
@@ -98,7 +99,7 @@ export default function Home() {
     setBrazilList(false)
     setByDateInBrazilList(false)
     setRegisterCovidData(false)
-
+    setSearch('')
   }
 
   // Req GET para listar os casos nos estados brasileiros em uma data especifica
@@ -109,8 +110,8 @@ export default function Home() {
       const response = await covidApi.listByDateinBrazil(data)
       setByDateInBrazil(response)
       setByDateInBrazilList(true)
+      setSearch('')
     }
-    
   }
 
   // Input da data utilizando uma mascara para formatacao
