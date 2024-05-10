@@ -1,3 +1,6 @@
+
+// Corpo do Card que recebe a lista de paises e os exibe na tela
+
 import { Brazil } from "../../Models/Brazil";
 
 export default function ListBody ({
@@ -29,13 +32,7 @@ export default function ListBody ({
             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                 {refuses}
             </td>
-            {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                {broadcast}
-            </td> */}
-            
-            {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                {comments}
-            </td> */}
+
             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                 {formattedDatetime}
             </td>

@@ -1,3 +1,6 @@
+
+// Corpo do Card que recebe a lista de paises e os exibe na tela
+
 import { Country } from "../../Models/Country";
 
 export default function ListBody ({

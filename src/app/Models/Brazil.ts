@@ -1,3 +1,6 @@
+
+// Modelo de dados Brasil
+
 export interface Brazil {
     uid: number,
     uf: string,

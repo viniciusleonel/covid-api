@@ -1,3 +1,6 @@
+
+// Cria mascara pra utilizar o padrao de data 'DD/MM/YYY'
+
 export function maskDate(date: string): string {
     const noMask = date.replace(/\D/g, '');
     const { length } = noMask;

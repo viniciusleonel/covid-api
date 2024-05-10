@@ -1,3 +1,6 @@
+
+// Componente completo que junta o corpo e o cabecalho do card para exibir na tela a lista de paises
+
 import { Country } from "@/app/Models/Country";
 import ListBody from "./countries-list-body";
 import ListHeader from "./countries-list-header";

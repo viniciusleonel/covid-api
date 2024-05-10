@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Logo from "../../../images/prosesmt_logo.jpeg"
 import { InputHTMLAttributes, ReactElement } from "react"
+import Link from "next/link";
 
 interface NavProps {
     input?: ReactElement<InputHTMLAttributes<HTMLInputElement>, any>
 }
 
+// Componente Nav que recebe um input como Prop para filtrar a lista exibida
 export default function Nav({input} : NavProps) {
 
     return (
@@ -18,13 +20,23 @@ export default function Nav({input} : NavProps) {
                     src={Logo}
                     alt="ProSESMT l=Logo"
                 />
-                <h1 
+                <Link 
                     className="text-2xl font-bold"
-                >ProSESMT</h1>
+                    href={'https://prosesmt.com.br/site/'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >ProSESMT</Link>
             </div>
 
             <div>
-                <h2 className="text-2xl font-bold">Covid-19 Api</h2>
+                <Link 
+                    className="text-2xl font-bold"
+                    href={'https://covid19-brazil-api-docs.vercel.app/'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >
+                        Covid-19 Api
+                </Link>
             </div>
 
             <div>

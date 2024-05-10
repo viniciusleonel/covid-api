@@ -10,40 +10,39 @@ import { Country } from "./Models/Country";
 import CountryList from "./components/Countries/countries-list";
 import { maskDate } from "./lib/utils/maskDate";
 import { invertDate } from "./lib/utils/invertDate";
-import { RegisterCovidData } from "@/components/component/register-covid-data";
+import { RegisterCovidData } from "./components/register-covid-data";
 
 export default function Home() {
 
+  // Controle de inputs e do select para exibicao dos cards
   const [search, setSearch] = useState('')
   const [dataSelecionada, setDataSelecionada] = useState("");
   const [opcaoSelecionada, setOpcaoSelecionada] = useState("");
 
+  // Controle de exibicao dos componentes relacionados aos dados do Brasil
   const [brazilData, setBrazilData] = useState<Brazil[]>([]);
   const [brazilDataFiltered, setBrazilDataFiltered] = useState<Brazil[]>([]);
   const [brazilList, setBrazilList] = useState(false)
 
+    // Controle de exibicao dos componentes de busca por data no Brasil
   const [byDateInBrazil, setByDateInBrazil] = useState<Brazil[]>([]);
   const [byDateInBrazilFiltered, setByDateInBrazilFiltered] = useState<Brazil[]>([]);
   const [byDateInBrazilList, setByDateInBrazilList] = useState(false)
 
+    // Controle de exibicao dos componentes relacionados aos dados de todos os paises
   const [countriesData, setCountriesData] = useState<Country[]>([]);
   const [cuntriesDataFiltered, setCountriesFiltered] = useState<Country[]>([]);
   const [countriesList, setCountriesList] = useState(false)
 
+  // Controle de exibicao do formulario para registro de dados da covid
   const [registerCovidData, setRegisterCovidData] = useState(false)
 
   const [error, setError] = useState<string | null>(null);
   
+  // Instancia da Covid-19-API-Service
   const covidApi = new Covid19ApiService()
 
-  function exibirForm ( ) {
-    setRegisterCovidData(!registerCovidData)
-    setCountriesList(false)
-    setBrazilList(false)
-    setOpcaoSelecionada('')
-  }
-
-
+  // Filtragem da lista da busca dos dados por data
   useEffect(() => {
     const lowerCaseSearch = unidecode(search.toLowerCase()); // Normaliza o texto de pesquisa
     const filteredDetails = byDateInBrazil.filter((detail) =>
@@ -55,6 +54,7 @@ export default function Home() {
     setByDateInBrazilFiltered(filteredDetails);
   }, [byDateInBrazil, search]);
 
+  // Filtrage da lista dos estados brasileiros
   useEffect(() => {
     const lowerCaseSearch = unidecode(search.toLowerCase()); // Normaliza o texto de pesquisa
     const filteredDetails = brazilData.filter((detail) =>
@@ -66,6 +66,7 @@ export default function Home() {
     setBrazilDataFiltered(filteredDetails);
   }, [brazilData, search]);
 
+  // Filtragem da lista dos paises
   useEffect(() => {
     const lowerCaseSearch = unidecode(search.toLowerCase()); // Normaliza o texto de pesquisa
     const filteredDetails = countriesData.filter((detail) =>
@@ -75,20 +76,24 @@ export default function Home() {
     setCountriesFiltered(filteredDetails);
   }, [countriesData, search]);
 
-  async function buscarCasosNoBrasil(){
+  // Req GET para listar os casos nos estados brasileiros
+  async function listarCasosNoBrasil(){
     const response = await covidApi.listCasesInBrazil()
     setBrazilData(response)
 
+    // Controle de exibicao de componentes
     setBrazilList(true)
     setCountriesList(false)
     setByDateInBrazilList(false)
     setRegisterCovidData(false)
   }
 
-  async function buscarPorPais(){
+  // Req GET para listar os casos nos paises
+  async function listarPaises(){
     const response = await covidApi.listAllCountries()
     setCountriesData(response)
 
+    // Controle de exibicao de componentes
     setCountriesList(true)
     setBrazilList(false)
     setByDateInBrazilList(false)
@@ -96,48 +101,69 @@ export default function Home() {
 
   }
 
+  // Req GET para listar os casos nos estados brasileiros em uma data especifica
   async function getByData(data:string) {
     const response = await covidApi.listByDateinBrazil(data)
     setByDateInBrazil(response)
     setByDateInBrazilList(true)
   }
 
-  const handleSubmit = async (event: { preventDefault: () => void; }) => {
-    event.preventDefault();
-    const dataInvertida = invertDate(dataSelecionada)
-    await getByData(dataInvertida);
-  };
-
+  // Input da data utilizando uma mascara para formatacao
   const handleDataChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
     const date = event.target.value
     const dateWithMask = maskDate(date.toString())
     setDataSelecionada(dateWithMask);
   };
 
+  // Enviando Req GET por uma data especifica digitada no Input
+  const handleSubmit = async (event: { preventDefault: () => void; }) => {
+    event.preventDefault();
+
+    // Inverte a data para o formato adequado da API
+    const dataInvertida = invertDate(dataSelecionada)
+    await getByData(dataInvertida);
+  };
+
+  // Controle de exibicao do formulario de registro de dados da covid
+  function exibirForm ( ) {
+    setRegisterCovidData(!registerCovidData)
+
+    // Controle de exibicao de componentes
+    setCountriesList(false)
+    setBrazilList(false)
+    setOpcaoSelecionada('')
+    setByDateInBrazilList(false)
+  }
+
   if (error) {
     return <div>{error}</div>;
   }
 
+  // Controle de opcao do Select
   const handleOpcaoSelecionada = (event: { target: { value: React.SetStateAction<string>; }; }) => {
     const selectedOption = event.target.value;
     setOpcaoSelecionada(selectedOption);
+
     if (selectedOption === "paises") {
-      buscarPorPais();
+      // Lista todos os paises
+      listarPaises();
+
     } else if (selectedOption === "brasil") {
-      buscarCasosNoBrasil();
-    } else if (selectedOption !== "data") {
-      setDataSelecionada("");
+      // Lista Casos no Brasil
+      listarCasosNoBrasil();
+
     } else if (selectedOption === "data") {
+      // Exibe o input para insercao da data
       setDataSelecionada("");
       setCountriesList(false)
       setBrazilList(false)
       setRegisterCovidData(false)
-
     } 
   };
 
   return (
     <>
+    {/* Component Nav */}
       <Nav 
         input={
           <input
@@ -162,6 +188,8 @@ export default function Home() {
               <option value="brasil">Brasil</option>
               <option value="data">Data</option>
             </select>
+
+            {/* Exibe input para insercao da data para Req Get */}
             {opcaoSelecionada === "data" && (
               <div>
                 <form onSubmit={handleSubmit}>
@@ -178,14 +206,11 @@ export default function Home() {
                 </form>
               </div>
             )}
-
             
           </div>
-          
-            
-          
         </div>
 
+        {/*  Exibe listagem dos estados brasileiros  */}
         {brazilList && (
           <BrazilList 
           search={search}
@@ -194,6 +219,7 @@ export default function Home() {
         />
         )}
         
+        {/* Exibe resultado da filtragem por data */}
         {byDateInBrazilList && (
           <BrazilList 
             search={search}
@@ -202,6 +228,7 @@ export default function Home() {
         />
         )}
 
+        {/* Exibe resultado da listagem de paises */}
         {countriesList && (
           <CountryList 
             search={search}
@@ -210,6 +237,7 @@ export default function Home() {
         />
         )}
 
+          {/* Exibe o formulario de registro de dados da covid */}
           {registerCovidData && (
             <RegisterCovidData />
           )}

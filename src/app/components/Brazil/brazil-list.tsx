@@ -1,3 +1,8 @@
+
+// Componente completo que junta o corpo e o cabecalho do card para 
+// exibir na tela a lista dos estados brasileiros
+
+
 import { Brazil } from "@/app/Models/Brazil";
 import ListBody from "./brazil-list-body";
 import ListHeader from "./brazil-list-header";

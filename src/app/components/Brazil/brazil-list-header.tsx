@@ -1,3 +1,6 @@
+
+// Cabecalho do Card com os dados a serem exibidos na tela
+
 export default function ListHeader () {
     return (
         <tr>

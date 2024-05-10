@@ -1,3 +1,6 @@
+
+// Cria um Schema e um Type para valizadacao do formulario usando ZOD
+
 import { z } from "zod";
 
 export const registerCovidDataSchema = z.object({

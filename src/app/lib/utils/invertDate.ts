@@ -1,3 +1,7 @@
+
+// Inverter data para enviar para a API
+// 18/03/2020 => 20200318
+
 export function invertDate(date: string): string {
     const noSlash = date.replace(/\//g, '');
     const day = noSlash.slice(0, 2);
