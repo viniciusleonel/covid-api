@@ -103,9 +103,14 @@ export default function Home() {
 
   // Req GET para listar os casos nos estados brasileiros em uma data especifica
   async function getByData(data:string) {
-    const response = await covidApi.listByDateinBrazil(data)
-    setByDateInBrazil(response)
-    setByDateInBrazilList(true)
+    if (data === '') {
+      setError('Insira uma Data')
+    } else {
+      const response = await covidApi.listByDateinBrazil(data)
+      setByDateInBrazil(response)
+      setByDateInBrazilList(true)
+    }
+    
   }
 
   // Input da data utilizando uma mascara para formatacao
@@ -119,6 +124,7 @@ export default function Home() {
   const handleSubmit = async (event: { preventDefault: () => void; }) => {
     event.preventDefault();
 
+    setError('')
     // Inverte a data para o formato adequado da API
     const dataInvertida = invertDate(dataSelecionada)
     await getByData(dataInvertida);
@@ -133,10 +139,6 @@ export default function Home() {
     setBrazilList(false)
     setOpcaoSelecionada('')
     setByDateInBrazilList(false)
-  }
-
-  if (error) {
-    return <div>{error}</div>;
   }
 
   // Controle de opcao do Select
@@ -204,6 +206,11 @@ export default function Home() {
                   />
                   <button type="submit" className="bg-cyan-400 p-1 rounded-lg ms-1 ps-2 pe-10 border-2 border-black font-medium hover:bg-cyan-500">Buscar</button>
                 </form>
+                {error && (
+                  <span className='text-red-500 pt-2'>
+                    {error}
+                  </span>
+                )}
               </div>
             )}
             
