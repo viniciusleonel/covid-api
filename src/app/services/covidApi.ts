@@ -8,7 +8,7 @@ export const covidApi: AxiosInstance = axios.create({
     baseURL: "https://covid19-brazil-api.now.sh/api/report/v1"
 })
 
-export default class Covid19ApiService {
+export class Covid19ApiService {
 
     // Req para listar todos os casos no Brasil
     async listCasesInBrazil(): Promise<Brazil[]> {

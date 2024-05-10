@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from "react";
-import Covid19ApiService from './Services/covidApi'
+import { Covid19ApiService } from '@/app/Services/covidApi'
 import Nav from "./components/nav";
 import unidecode from "unidecode";
 import { Brazil } from "./Models/Brazil";
