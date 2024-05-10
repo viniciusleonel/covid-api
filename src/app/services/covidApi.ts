@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosError, AxiosResponse } from "axios"
+import axios, { AxiosInstance } from "axios"
 import { Country } from "../Models/Country"
 import { Brazil } from "../Models/Brazil"
 
@@ -8,7 +8,7 @@ export const covidApi: AxiosInstance = axios.create({
     baseURL: "https://covid19-brazil-api.now.sh/api/report/v1"
 })
 
-export class Covid19ApiService {
+export default class Covid19ApiService {
 
     // Req para listar todos os casos no Brasil
     async listCasesInBrazil(): Promise<Brazil[]> {
