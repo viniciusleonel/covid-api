@@ -3,32 +3,32 @@ export default function ListHeader () {
         <tr>
             <th
                 className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider dark:text-gray-400"
-                scope="col">Country
+                scope="col">País
             </th>
 
             <th
                 className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider dark:text-gray-400"
-                scope="col">Cases
+                scope="col">Casos
             </th>
 
             <th
                 className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider dark:text-gray-400"
-                scope="col">Confirmed
+                scope="col">Confirmados
             </th>
 
             <th
                 className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider dark:text-gray-400"
-                scope="col">Deaths
+                scope="col">Mortes
             </th>
 
             <th
                 className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider dark:text-gray-400"
-                scope="col">Recoverd
+                scope="col">Recuperados
             </th>
 
             <th
                 className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider dark:text-gray-400"
-                scope="col">Updated_at
+                scope="col">Atualizado em:
             </th>
         </tr>
     )

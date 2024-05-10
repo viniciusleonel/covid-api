@@ -27,7 +27,7 @@ export default function Nav({input} : NavProps) {
                 <h2 className="text-2xl font-bold">Covid-19 Api</h2>
             </div>
 
-            <div className="border-2 rounded-lg border-cyan-700  ">
+            <div>
                 {input}
             </div>
 

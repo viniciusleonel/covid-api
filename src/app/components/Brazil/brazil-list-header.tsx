@@ -13,31 +13,31 @@ export default function ListHeader () {
 
             <th
                 className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider dark:text-gray-400"
-                scope="col">State
+                scope="col">Estado
             </th>
 
             <th
                 className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider dark:text-gray-400"
-                scope="col">Cases
+                scope="col">Casos
             </th>
 
             <th
                 className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider dark:text-gray-400"
-                scope="col">Deaths
+                scope="col">Mortes
             </th>
 
             <th
                 className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider dark:text-gray-400"
-                scope="col">Suspects
+                scope="col">Suspeitos
             </th>
             <th
                 className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider dark:text-gray-400"
-                scope="col">Refuses
+                scope="col">Recusados
             </th>
             
             <th
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400"
-                scope="col">DateTime
+                className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider dark:text-gray-400"
+                scope="col">Data
             </th>
         </tr>
     )

@@ -10,10 +10,12 @@ import { Country } from "./Models/Country";
 import CountryList from "./components/Countries/countries-list";
 import { maskDate } from "./lib/utils/maskDate";
 import { invertDate } from "./lib/utils/invertDate";
+import { RegisterCovidData } from "@/components/component/register-covid-data";
 
 export default function Home() {
 
   const [search, setSearch] = useState('')
+  const [dataSelecionada, setDataSelecionada] = useState("");
   const [opcaoSelecionada, setOpcaoSelecionada] = useState("");
 
   const [brazilData, setBrazilData] = useState<Brazil[]>([]);
@@ -28,11 +30,19 @@ export default function Home() {
   const [cuntriesDataFiltered, setCountriesFiltered] = useState<Country[]>([]);
   const [countriesList, setCountriesList] = useState(false)
 
+  const [registerCovidData, setRegisterCovidData] = useState(false)
+
   const [error, setError] = useState<string | null>(null);
   
   const covidApi = new Covid19ApiService()
 
-  const [dataSelecionada, setDataSelecionada] = useState("");
+  function exibirForm ( ) {
+    setRegisterCovidData(!registerCovidData)
+    setCountriesList(false)
+    setBrazilList(false)
+    setOpcaoSelecionada('')
+  }
+
 
   useEffect(() => {
     const lowerCaseSearch = unidecode(search.toLowerCase()); // Normaliza o texto de pesquisa
@@ -72,16 +82,18 @@ export default function Home() {
     setBrazilList(true)
     setCountriesList(false)
     setByDateInBrazilList(false)
+    setRegisterCovidData(false)
   }
 
   async function buscarPorPais(){
-    const responde = await covidApi.listAllCountries()
-    console.log(responde)
-    setCountriesData(responde)
+    const response = await covidApi.listAllCountries()
+    setCountriesData(response)
 
     setCountriesList(true)
     setBrazilList(false)
     setByDateInBrazilList(false)
+    setRegisterCovidData(false)
+
   }
 
   async function getByData(data:string) {
@@ -119,6 +131,8 @@ export default function Home() {
       setDataSelecionada("");
       setCountriesList(false)
       setBrazilList(false)
+      setRegisterCovidData(false)
+
     } 
   };
 
@@ -127,7 +141,7 @@ export default function Home() {
       <Nav 
         input={
           <input
-            className="bg-transparent p-1 focus:outline-none focus:none w-full"
+            className="bg-transparent p-1 border-2 rounded-lg border-cyan-700 focus:outline-none focus:border-cyan-500 w-full"
             placeholder="Pesquisar na lista "
             type="text"
             value={search}
@@ -137,12 +151,14 @@ export default function Home() {
       /> 
       <main className="mt-24 ms-10">
         
-        <div className="my-4 flex w-full items-center justify-between">
+        <div className="my-4 flex w-full items-center gap-4">
+          <button onClick={exibirForm} className="bg-cyan-400 p-1 rounded-lg ms-1 ps-2 pe-10 border-2 border-black font-medium hover:bg-cyan-500">Cadastrar</button>
+
           <div className="flex items-center gap-4 ">
             <select value={opcaoSelecionada} onChange={handleOpcaoSelecionada}
-            className="p-1 border-2 rounded-lg border-cyan-700">
+            className="p-[5px] font-medium border-2 rounded-lg border-cyan-700">
               <option value="">Pesquisar por:</option>
-              <option value="paises">Paises</option>
+              <option value="paises" className="border-2 rounded-lg border-cyan-700">Paises</option>
               <option value="brasil">Brasil</option>
               <option value="data">Data</option>
             </select>
@@ -151,19 +167,22 @@ export default function Home() {
                 <form onSubmit={handleSubmit}>
                   <label htmlFor="dataInput">Insira a data:</label>
                   <input
-                    className="ms-2 border-2 border-black rounded-lg p-1"
+                    className="ms-2 border-2 border-cyan-700 rounded-lg p-1 focus:outline-none focus:border-cyan-500"
                     id="dataInput"
                     type="text"
                     value={dataSelecionada}
                     onChange={handleDataChange}
                     placeholder="DD/MM/YYYY"
                   />
-                  <button type="submit">Buscar</button>
+                  <button type="submit" className="bg-cyan-400 p-1 rounded-lg ms-1 ps-2 pe-10 border-2 border-black font-medium hover:bg-cyan-500">Buscar</button>
                 </form>
               </div>
             )}
+
+            
           </div>
           
+            
           
         </div>
 
@@ -190,6 +209,10 @@ export default function Home() {
             countryDataFiltered={cuntriesDataFiltered}
         />
         )}
+
+          {registerCovidData && (
+            <RegisterCovidData />
+          )}
 
       </main>
     </>
