@@ -23,7 +23,6 @@ export class Covid19ApiService {
     async listAllCountries(): Promise<Country[]> {
         try {
             const response = await covidApi.get('/countries')
-            console.log(response.data)
             return response.data.data
         
         } catch (error: any){
@@ -31,4 +30,17 @@ export class Covid19ApiService {
 
         }
     }
+
+    async listByDateinBrazil(date: string): Promise<Brazil[]> {
+        try {
+            const response = await covidApi.get(`/brazil/${date}`)
+            console.log(response.data.data)
+            return response.data.data
+        
+        } catch (error: any){
+            throw new Error('Erro ao buscar dados: ' + error.message);
+
+        }
+    }
+    
 }
