@@ -30,7 +30,7 @@ export default function Nav({input} : NavProps) {
 
             <div>
                 <Link 
-                    className=" text-lg md:text-xl lg:text-2xl font-bold"
+                    className="hidden xs:block text-lg md:text-xl lg:text-2xl font-bold"
                     href={'https://covid19-brazil-api-docs.vercel.app/'}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -39,7 +39,7 @@ export default function Nav({input} : NavProps) {
                 </Link>
             </div>
 
-            <div className="w-1/4 sm:w-1/5 md:w-1/6 lg:w-[15%]">
+            <div className="w-1/3 xs:w-1/4 sm:w-1/5 md:w-1/6 lg:w-[15%]">
                 {input}
             </div>
 

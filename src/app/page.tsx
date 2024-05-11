@@ -178,7 +178,7 @@ export default function Home() {
           />
         }
       /> 
-      <main className="mt-14 md:mt-20 lg:mt-24 px-6">
+      <main className="mt-20 sm:mt-14 md:mt-20 lg:mt-24 px-6">
         
         <div className="my-4 flex  w-full items-center gap-4">
 
@@ -202,18 +202,18 @@ export default function Home() {
 
             {/* Exibe input para insercao da data para Req Get */}
             {opcaoSelecionada === "data" && (
-              <div>
-                <form onSubmit={handleSubmit}>
+              <div >
+                <form onSubmit={handleSubmit} className="flex flex-col xs:flex-row items-start xs:items-center justify-center  gap-2 xs:gap-0">
                   <label htmlFor="dataInput">Insira a data:</label>
                   <input
-                    className="ms-2 border-2 border-cyan-700 rounded-lg p-1 focus:outline-none focus:border-cyan-500"
+                    className="ms-0 xs:ms-2 border-2 border-cyan-700 rounded-lg p-1 focus:outline-none focus:border-cyan-500"
                     id="dataInput"
                     type="text"
                     value={dataSelecionada}
                     onChange={handleDataChange}
                     placeholder="DD/MM/YYYY"
                   />
-                  <button type="submit" className="bg-cyan-400 p-1 rounded-lg ms-1 ps-2 pe-10 border-2 border-black font-medium hover:bg-cyan-500">Buscar</button>
+                  <button type="submit" className="bg-cyan-400 p-1 rounded-lg ms-0 xs:ms-1 ps-2 pe-10 border-2 border-black font-medium hover:bg-cyan-500">Buscar</button>
                 </form>
                 {error && (
                   <span className='text-red-500 pt-2'>
