@@ -8,11 +8,14 @@ import { RegisterCovidForm, registerCovidDataSchema } from "@/app/lib/utils/sche
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useState } from "react";
+import { EstadosBrasileiros } from "../Models/States";
 
 export function RegisterCovidData() {
 
   // Estado para controle de exibicao do formulario
   const [formData, setFormData] = useState<RegisterCovidForm | null>(null);
+
+  const [estadoSelecionado, setEstadoSelecionado] = useState('');
 
   const {
     register: registerCovidData,
@@ -21,6 +24,11 @@ export function RegisterCovidData() {
   } = useForm<RegisterCovidForm>({
       resolver: zodResolver(registerCovidDataSchema)
   })
+
+  const handleEstadoChange = (event: { target: { value: any; }; }) => {
+    const estado = event.target.value;
+    setEstadoSelecionado(estado);
+};
 
   // Exibe os dados do formulario na tela
   function registrarDadosCovid(data: RegisterCovidForm) {
@@ -40,13 +48,19 @@ export function RegisterCovidData() {
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label htmlFor="state">Estado</Label>
-            <Input 
-              id="state" 
-              type="text"
-              {...registerCovidData('state')}
-              placeholder="Digite o estado" 
-              required
-            />
+            <select 
+              className="flex h-10 w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:ring-offset-gray-950 dark:placeholder:text-gray-400 dark:focus-visible:ring-gray-300"
+              id="state"  
+              value={estadoSelecionado}
+              {...registerCovidData('state', { onChange: handleEstadoChange })}
+            >
+              <option value="">Selecione um Estado</option>
+              {Object.values(EstadosBrasileiros).map((estado) => (
+                <option key={estado} value={estado}>
+                  {estado}
+                </option>
+              ))}
+            </select>
             {errorsCovidData.state && <span className='text-red-500 pt-2'>{errorsCovidData.state.message}</span>}
 
           </div>
