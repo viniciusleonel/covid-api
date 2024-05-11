@@ -45,7 +45,7 @@ export function RegisterCovidData() {
               type="text"
               {...registerCovidData('state')}
               placeholder="Digite o estado" 
-              required 
+              required
             />
             {errorsCovidData.state && <span className='text-red-500 pt-2'>{errorsCovidData.state.message}</span>}
 
@@ -56,8 +56,8 @@ export function RegisterCovidData() {
               id="cases" 
               {...registerCovidData('cases')}
               placeholder="Digite o número de casos" 
-              required 
               type="number" 
+              required
             />
             {errorsCovidData.cases && <span className='text-red-500 pt-2'>{errorsCovidData.cases.message}</span>}
           </div>
@@ -69,8 +69,8 @@ export function RegisterCovidData() {
               id="confirmed" 
               {...registerCovidData('confirmed')}
               placeholder="Digite o número de confirmados" 
-              required 
               type="number" 
+              required
             />
             {errorsCovidData.confirmed && <span className='text-red-500 pt-2'>{errorsCovidData.confirmed.message}</span>}
           </div>
@@ -80,8 +80,8 @@ export function RegisterCovidData() {
               id="deaths" 
               {...registerCovidData('deaths')}
               placeholder="Digite o número de mortos" 
-              required 
               type="number" 
+              required
             />
             {errorsCovidData.deaths && <span className='text-red-500 pt-2'>{errorsCovidData.deaths.message}</span>}
           </div>
@@ -93,8 +93,8 @@ export function RegisterCovidData() {
               id="recovered" 
               {...registerCovidData('recovered')}
               placeholder="Digite o número de recuperados" 
-              required 
               type="number" 
+              required
             />
             {errorsCovidData.recovered && <span className='text-red-500 pt-2'>{errorsCovidData.recovered.message}</span>}
           </div>
@@ -103,8 +103,8 @@ export function RegisterCovidData() {
             <Input 
               id="date" 
               {...registerCovidData('date')}
-              required 
               type="date" 
+              required
             />
             {errorsCovidData.date && <span className='text-red-500 pt-2'>{errorsCovidData.date.message}</span>}
           </div>

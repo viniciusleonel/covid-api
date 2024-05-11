@@ -178,19 +178,27 @@ export default function Home() {
           />
         }
       /> 
-      <main className="mt-24 ms-10">
+      <main className="mt-14 md:mt-20 lg:mt-24 px-6">
         
-        <div className="my-4 flex w-full items-center gap-4">
-          <button onClick={exibirForm} className="bg-cyan-400 p-1 rounded-lg ms-1 ps-2 pe-10 border-2 border-black font-medium hover:bg-cyan-500">Cadastrar</button>
+        <div className="my-4 flex  w-full items-center gap-4">
 
-          <div className="flex items-center gap-4 ">
-            <select value={opcaoSelecionada} onChange={handleOpcaoSelecionada}
-            className="p-[5px] font-medium border-2 rounded-lg border-cyan-700">
-              <option value="">Pesquisar por:</option>
-              <option value="paises" className="border-2 rounded-lg border-cyan-700">Paises</option>
-              <option value="brasil">Brasil</option>
-              <option value="data">Data</option>
-            </select>
+          <div className=" w-full flex flex-col md:flex-row items-center gap-4 ">
+            <div className="flex gap-4">
+              <div>
+                <button onClick={exibirForm} className="bg-cyan-400 p-1 rounded-lg ms-1 ps-2 pe-10 border-2 border-black font-medium hover:bg-cyan-500">Cadastrar</button>
+              </div>
+
+              <div>
+                <select value={opcaoSelecionada} onChange={handleOpcaoSelecionada}
+                  className="p-[5px] font-medium border-2 rounded-lg border-cyan-700">
+                    <option value="">Pesquisar por:</option>
+                    <option value="paises" className="border-2 rounded-lg border-cyan-700">Paises</option>
+                    <option value="brasil">Brasil</option>
+                    <option value="data">Data</option>
+                </select>
+              </div>
+            </div>
+            
 
             {/* Exibe input para insercao da data para Req Get */}
             {opcaoSelecionada === "data" && (
@@ -247,7 +255,7 @@ export default function Home() {
 
           {/* Exibe o formulario de registro de dados da covid */}
           {registerCovidData && (
-            <RegisterCovidData />
+              <RegisterCovidData />
           )}
 
       </main>
