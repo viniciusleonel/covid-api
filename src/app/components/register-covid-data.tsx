@@ -38,7 +38,7 @@ export function RegisterCovidData() {
   return (
     <div className="mx-auto max-w-md space-y-6 ">
       <div className="text-center">
-        <h1 className="text-3xl font-bold">Registro de Dados COVID-19</h1>
+        <h1 className="text-3xl mb-4 font-bold">Registro de Dados COVID-19</h1>
         <p className="text-gray-500 dark:text-gray-400">
           Preencha os campos abaixo com as informações relacionadas à COVID-19.
         </p>
@@ -49,7 +49,7 @@ export function RegisterCovidData() {
           <div className="space-y-2">
             <Label htmlFor="state">Estado</Label>
             <select 
-              className="flex h-10 w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:ring-offset-gray-950 dark:placeholder:text-gray-400 dark:focus-visible:ring-gray-300"
+              className="flex h-10 w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
               id="state"  
               value={estadoSelecionado}
               {...registerCovidData('state', { onChange: handleEstadoChange })}

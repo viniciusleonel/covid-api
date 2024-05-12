@@ -11,7 +11,7 @@ interface NavProps {
 export default function Nav({input} : NavProps) {
 
     return (
-        <nav className="fixed top-0 left-0 w-full z-50 px-3 py-1 md:py-3 border-b-2 dark:border-b-2 border-cyan-700  dark:border-cyan-400 bg-white dark:bg-dark-primary">
+        <nav className="fixed top-0 left-0 w-full z-50 px-3 py-1 md:py-3 border-b-2 dark:border-b-2 border-cyan-700 bg-white">
         <div className="mx-3 flex items-center justify-between">
             <div className="flex items-center justify-center gap-4">
                 <div className="w-[25px] h-[25px] md:w-[40px] md:h-[40px] lg:w-[50px] lg:h-[50px]">

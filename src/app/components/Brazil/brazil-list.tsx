@@ -16,11 +16,11 @@ interface BrazilListProps {
 export default function BrazilList ({search, brazilData, brazilDataFiltered}: BrazilListProps) {
     return (
         <div className="overflow-x-auto ">
-            <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+            <table className="min-w-full divide-y divide-gray-200 ">
             <thead className="bg-gray-50 dark:bg-gray-800">
                 <ListHeader />
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200 dark:bg-gray-950 dark:divide-gray-700">
+            <tbody className="bg-white divide-y divide-gray-200 ">
             {search === '' ? (
                 brazilData.map((detail) => (
                     <ListBody 

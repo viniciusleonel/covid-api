@@ -11,29 +11,29 @@ export default function ListBody ({
 
     return (
         <tr>
-            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-700 dark:text-gray-200">
+            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-700 ">
                 {uid}
             </td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-700 dark:text-gray-200">
+            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-700 ">
                 {uf}
             </td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-400">
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
                 {state}
             </td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 ">
                 {cases}
             </td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 ">
                 {deaths}
             </td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 ">
                 {suspects}
             </td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 ">
                 {refuses}
             </td>
 
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 ">
                 {formattedDatetime}
             </td>
 
