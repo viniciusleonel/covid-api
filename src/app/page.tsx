@@ -35,7 +35,7 @@ export default function Home() {
   const [countriesList, setCountriesList] = useState(false)
 
   // Controle de exibicao do formulario para registro de dados da covid
-  const [registerCovidData, setRegisterCovidData] = useState(false)
+  const [registerCovidData, setRegisterCovidData] = useState(true)
 
   const [error, setError] = useState<string | null>(null);
   
