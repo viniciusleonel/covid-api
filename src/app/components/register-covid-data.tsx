@@ -130,7 +130,7 @@ export function RegisterCovidData() {
 
       {/* Exibe os dados na tela caso formData seja true */}
       {formData && (
-        <div className="mt-6 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
+        <div className="mt-6 bg-gray-100 p-4 rounded-lg">
           <h2 className="text-xl font-bold mb-2">Dados do Formulário</h2>
           <pre>{JSON.stringify(formData, null, 2)}</pre>
         </div>

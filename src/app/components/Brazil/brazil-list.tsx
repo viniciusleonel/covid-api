@@ -17,7 +17,7 @@ export default function BrazilList ({search, brazilData, brazilDataFiltered}: Br
     return (
         <div className="overflow-x-auto ">
             <table className="min-w-full divide-y divide-gray-200 ">
-            <thead className="bg-gray-50 dark:bg-gray-800">
+            <thead className="bg-gray-50 ">
                 <ListHeader />
             </thead>
             <tbody className="bg-white divide-y divide-gray-200 ">
