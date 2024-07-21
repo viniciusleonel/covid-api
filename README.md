@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [Covid19 Brasil Front-end](https://viniciusleonel-dev-covid-api.vercel.app/)
 
-## Getting Started
+Este projeto é um front-end que consome a API Covid19 Brasil, permitindo a busca de casos de Covid-19 no Brasil e no mundo. O projeto oferece filtros adicionais e pesquisa por data. Foi desenvolvido utilizando Next.JS, React.JS e TailWindCSS.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Funcionalidades
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Busca de Casos no Brasil**: Realiza solicitações para buscar casos de Covid-19 em diferentes estados do Brasil.
+- **Busca de Casos no Mundo**: Realiza solicitações para buscar casos de Covid-19 em diferentes países.
+- **Pesquisa por Data**: Permite a pesquisa de casos de Covid-19 em uma data específica.
+- **Filtros Adicionais**: Filtros para facilitar a busca e visualização dos dados.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Tecnologias Utilizadas
 
-## Learn More
+- **Next.JS**: Framework React para desenvolvimento de aplicações web.
+- **React.JS**: Biblioteca JavaScript para construção de interfaces de usuário.
+- **TailWindCSS**: Framework CSS para estilização.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Instalação
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/covid19-brasil-frontend.git
+   ```
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd covid19-brasil-frontend
+   ```
+3. Instale as dependências:
+   ```bash
+   npm install
+   ```
+4. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
 
-## Deploy on Vercel
+## Feito por:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Vinicius Leonel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Linkedin: https://www.linkedin.com/in/viniciuslps
